@@ -34,9 +34,10 @@ public class Libreria {
         util.imprime("Introduce el isbn del libro que vendes");
         String isbn = util.qstring();
         for (int i=0;i<libreria.size();i++){
-            if (libreria.get(i).isbn == isbn){
+            if (libreria.get(i).isbn.compareTo(isbn) == 0){
                 if (libreria.get(i).unidades>0) {
-                    int unidades = libreria.get(i).unidades - 1;
+                    int unidades = libreria.get(i).unidades;
+                    unidades--;
                     libreria.set(i, new Libros(libreria.get(i).titulo,libreria.get(i).autor,libreria.get(i).isbn,libreria.get(i).precio,unidades));
                 } else { 
                     util.imprime("Ya no tienes mas unidades de este libro\nNo puedes vender este libro");
@@ -67,9 +68,9 @@ public class Libreria {
         util.imprime("Introduce el ISBN del libro que quieras buscar");
         String buscar = util.qstring();
         for (int i=0;i<libreria.size();i++){
-            if (libreria.get(i).isbn == buscar){
+            if (libreria.get(i).isbn.compareTo(buscar) == 0){
                 util.imprime(libreria.get(i).titulo +", " +libreria.get(i).autor + ", " +libreria.get(i).isbn + ", " +libreria.get(i).precio +", " +libreria.get(i).unidades);
-            } else { util.imprime("error"); }
+            } 
         }
     }  
     
